@@ -1,3 +1,8 @@
+/*
+Classe para testar a classe Nucleotideo
+Author:LuizFelipe
+*/
+
 package lfpl1;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -16,7 +21,6 @@ class NucleotideoTeste {
 	        Files.writeString(Path.of("seqInvalida.txt"), "ABC TEM FALHA");
 	    }
 
-	    // Finalizador para excluir os arquivos após os testes
 	    @AfterEach
 	    void cleanup() throws IOException {
 	        Files.deleteIfExists(Path.of("seqValida.txt"));
@@ -24,7 +28,6 @@ class NucleotideoTeste {
 	        Files.deleteIfExists(Path.of("seqInvalida.txt"));
 	    }
 
-	    // Teste para a sequência válida
 	    @Test
 	    @DisplayName("Verifica se o método calcula corretamente o número de nucleotídeos com uma sequência válida.")
 	    void testSequenciaValida() throws Exception {
@@ -32,7 +35,6 @@ class NucleotideoTeste {
 	        assertArrayEquals(esperado, calculaNucleotideos("seqValida.txt"));
 	    }
 
-	    // Teste para sequência com erro
 	    @Test
 	    @DisplayName("Verifica se o método conta corretamente nucleotídeos e erros em uma sequência com um caractere inválido.")
 	    void testSequenciaComErro() throws Exception {
@@ -40,14 +42,12 @@ class NucleotideoTeste {
 	        assertArrayEquals(esperado, calculaNucleotideos("seqComErro.txt"));
 	    }
 
-	    // Teste para sequência inválida com mais de 10% de caracteres inválidos
 	    @Test
 	    @DisplayName("Verifica se o método retorna null quando o número de caracteres inválidos ultrapassa 10%.")
 	    void testSequenciaInvalida() throws Exception {
 	        assertNull(calculaNucleotideos("seqInvalida.txt"));
 	    }
 
-	    // Teste para arquivo não encontrado
 	    @Test
 	    @DisplayName("Verifica se o método lança uma exceção quando o arquivo não é encontrado.")
 	    void testArquivoNaoEncontrado() {
