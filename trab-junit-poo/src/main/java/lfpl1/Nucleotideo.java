@@ -1,3 +1,7 @@
+/*
+Classe Nucleotideo, que será testada
+Author: LuizFelipe
+*/
 package lfpl1;
 
 import java.io.*;
@@ -7,12 +11,12 @@ public class Nucleotideo {
 	public static int[] calculaNucleotideos(String caminhoArquivo) throws IOException {
         String sequencia;
         try {
-            sequencia = Files.readString(Path.of(caminhoArquivo)).toUpperCase(); // Lê o conteúdo do arquivo
+            sequencia = Files.readString(Path.of(caminhoArquivo)).toUpperCase();
         } catch (IOException e) {
             throw new FileNotFoundException("Arquivo não encontrado.");
         }
 
-        int[] contagem = new int[5]; // Array para armazenar [A, C, G, T, Erros]
+        int[] contagem = new int[5];
 
         for (char nucleo : sequencia.toCharArray()) {
             switch (nucleo) {
@@ -29,11 +33,10 @@ public class Nucleotideo {
                     contagem[3]++;
                     break;
                 default:
-                    contagem[4]++; // Contagem de erros
+                    contagem[4]++;
             }
         }
 
-        // Verifica se os erros excedem 10% da sequência
         int totalCaracteres = sequencia.length();
         if (contagem[4] > totalCaracteres * 0.1) {
             return null;
