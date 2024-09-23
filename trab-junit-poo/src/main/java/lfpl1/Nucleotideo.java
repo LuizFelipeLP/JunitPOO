@@ -8,10 +8,10 @@ import java.io.*;
 import java.nio.file.*;
 
 public class Nucleotideo {
-	public static int[] calculaNucleotideos(String arquivo.txt) throws IOException {
+	public static int[] calculaNucleotideos(String arquivotxt) throws IOException {
         String sequencia;
         try {
-            sequencia = Files.readString(Path.of(arquivo.txt)).toUpperCase();
+            sequencia = Files.readString(Path.of(arquivotxt)).toUpperCase();
         } catch (IOException e) {
             throw new FileNotFoundException("Arquivo não encontrado.");
         }
