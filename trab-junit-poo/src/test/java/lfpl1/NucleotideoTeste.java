@@ -16,8 +16,8 @@ class NucleotideoTeste {
 
 	 @BeforeEach
 	    void setup() throws IOException {
-	        Files.writeString(Path.of("seqValida.txt"), "AAAGTCTGAC");
-	        Files.writeString(Path.of("seqComErro.txt"), "AACTGTCGBA");
+	        Files.writeString(Path.of("seqValida.txt"), "AATGACTGAC");
+	        Files.writeString(Path.of("seqComErro.txt"), "AAGTGTCCBA");
 	        Files.writeString(Path.of("seqInvalida.txt"), "ABC TEM FALHA");
 	    }
 
