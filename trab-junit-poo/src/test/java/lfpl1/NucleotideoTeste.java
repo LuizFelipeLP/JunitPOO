@@ -32,27 +32,27 @@ class NucleotideoTeste {
 	    @DisplayName("Verifica se o método calcula corretamente o número de nucleotídeos com uma sequência válida.")
 	    void testSequenciaValida() throws Exception {
 	        int[] esperado = {4, 2, 2, 2, 0};
-	        assertArrayEquals(esperado, calculaNucleotideos("seqValida.txt"));
+	        assertArrayEquals(esperado, Nucleotideo.calculaNucleotideos("seqValida.txt"));
 	    }
 
 	    @Test
 	    @DisplayName("Verifica se o método conta corretamente nucleotídeos e erros em uma sequência com um caractere inválido.")
 	    void testSequenciaComErro() throws Exception {
 	        int[] esperado = {3, 2, 2, 2, 1};
-	        assertArrayEquals(esperado, calculaNucleotideos("seqComErro.txt"));
+	        assertArrayEquals(esperado, Nucleotideo.calculaNucleotideos("seqComErro.txt"));
 	    }
 
 	    @Test
 	    @DisplayName("Verifica se o método retorna null quando o número de caracteres inválidos ultrapassa 10%.")
 	    void testSequenciaInvalida() throws Exception {
-	        assertNull(calculaNucleotideos("seqInvalida.txt"));
+	        assertNull(Nucleotideo.calculaNucleotideos("seqInvalida.txt"));
 	    }
 
 	    @Test
 	    @DisplayName("Verifica se o método lança uma exceção quando o arquivo não é encontrado.")
 	    void testArquivoNaoEncontrado() {
 	        Exception exception = assertThrows(FileNotFoundException.class, () -> {
-	            calculaNucleotideos("arquivoInexistente.txt");
+	            Nucleotideo.calculaNucleotideos("arquivoInexistente.txt");
 	        });
 	        assertEquals("Arquivo não encontrado.", exception.getMessage());
 	    }
